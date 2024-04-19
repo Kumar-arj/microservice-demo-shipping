@@ -22,11 +22,11 @@ spec:
       containers:
       - name: shipping
         image: {{if .Values.global.registry}}{{ .Values.global.registry }}/{{end}}{{ .Values.shipping.image.repo }}:{{ .Values.shipping.image.tag }}
-        command:
-        - /usr/local/bin/java.sh
-        - -jar
-        - ./app.jar
-        - --port={{ .Values.shipping.containerPort }}
+        # command:
+        # - java
+        # - -jar
+        # - ./app.jar
+        # - --port={{ .Values.shipping.containerPort }}
         env:
         {{- if .Values.zipkin.enabled }}
          - name: ZIPKIN
